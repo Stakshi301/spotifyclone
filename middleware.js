@@ -2,7 +2,7 @@ import { getToken } from 'next-auth/jwt'
 import { NextResponse } from 'next/server'
 
 // This function can be marked `async` if using `await` inside
-export async function middleware(req) {
+export async function middleware(req) { 
     const token = await getToken({ req, secret: process.env.JWT_SECRET })
     const { pathname } = req.nextUrl
     if (pathname.includes("/api/auth") || token) {
